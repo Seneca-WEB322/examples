@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Online Photo Album</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div style="text-align: center">
+    <h3>Welcome to my online photo album</h3>
+  </div>
+  <div>
+    <a href="/add-photo" class="button">Upload a photo</a>
+  </div>
+  <div>
+    {{#if hasPhotos }} {{#each photos}}
+    <div class="photo-tile">
+      <div>{{name}} ({{email}})</div>
+      <div>
+        <img src="./photos/{{filename}}" style="width:100%;" />
+      </div>
+      <div class="caption">Caption: {{caption}}</div>
+      <div class="upload-date"><i>Uploaded: {{uploadDate}}</i></div>
+      <div class="remove" title="Remove photo">
+        <form action="/remove-photo/{{filename}}" method="post">
+          <button type="submit">
+            <img src="/trash_can.png"/>
+          </button>
+        </form>
+      </div>
+    </div>
+    {{/each}} {{else}}
+    <p>
+      You have no photos uploaded yet
+    </p>
+    {{/if}}
+  </div>
+
+</body>
+
+</html>

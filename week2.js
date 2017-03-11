@@ -1,19 +1,25 @@
-// require the HTTP module
+var HTTP_PORT = process.env.PORT || 8080;
+var express = require("express");
 var http = require("http");
+var path = require("path");
 
-// define a port to listen to
-const PORT= process.env.PORT || 8080; 
+var app = module.exports = express();
 
-// create a function which handles requests and sends a response
-function handleRequest(req, res){
-  res.end("Hello World from: " + req.url);
+// call this function after the http server starts listening for requests
+function onHttpStart() {
+  console.log("Express http server listening on: " + HTTP_PORT);
 }
 
-// create a server and pass it a function that will handle the incoming requests
-var server = http.createServer(handleRequest);
+// setup http server to listen on HTTP_PORT
+var http_server = http.createServer(app);
+http_server.listen(HTTP_PORT, onHttpStart);
 
-// start the server
-server.listen(PORT, () => {
-    // this callback triggered when server is successfully listening. Hurray!
-    console.log("Server listening on: %s", PORT);
+// setup a 'route' to listen on the default url path (http://localhost)
+app.get("/", function(req,res){
+  res.send("Hello World<br /><a href='/about'>Go to the about page</a>");
+});
+
+// setup another route to listen on /about
+app.get("/about", function(req,res){
+  res.sendFile(path.join(__dirname + "/week2-assets/about.html"));
 });

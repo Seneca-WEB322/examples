@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Online Photo Album - Add photo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div style="text-align: center">
+    <h3>Add a photo to the album</h3>
+  </div>
+  <div style="margin-bottom:12px;">
+    <a href="/" class="button">View the Album</a>
+  </div>
+  <div>
+    <p>{{ message }}</p>
+  </div>
+  <div style="width:400px;border:1px dashed #6495de;padding:16px;">
+    <form action="/add-photo" method="POST" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>
+            <label for="name">Your Name</label>
+          </td>
+          <td>
+            <input id="name" name="name" type="text" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input id="email" name="email" type="text" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="caption">Caption</label>
+          </td>
+          <td>
+            <input id="caption" name="caption" type="text" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="photo">Photo</label>
+          </td>
+          <td>
+            <input id="photo" name="photo" type="file" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            &nbsp;
+          </td>
+          <td>
+            <input type="submit" value="Submit Photo" />
+          </td>
+        </tr>
+    </form>
+  </div>
+</body>
+
+</html>

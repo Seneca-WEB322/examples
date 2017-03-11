@@ -1,0 +1,61 @@
+body {
+  padding:6px;
+}
+
+input {
+  margin: 4px;
+  width: 250px;
+}
+
+.photo-tile {
+  width: 300px;
+  height: 360px;
+  float:left;
+  border: 1px solid black;
+  margin:12px 24px 12px 0;
+  position: relative;
+  background-color: #f5f5ff;
+}
+
+button {
+  cursor: pointer;
+}
+
+.button {
+  padding:6px;
+  border:1px solid #444444;
+  background-color: #5599bb;
+  color: white;
+  text-decoration: none;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  display: table-cell;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #4488aa;
+}
+
+.caption {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.upload-date {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 14px;
+}
+
+.remove {
+  position: absolute;
+  width: 55px;
+  height:42px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.remove img {
+  width:24px;
+  height: 24px;
+}
