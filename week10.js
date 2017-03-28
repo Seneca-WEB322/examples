@@ -4,6 +4,14 @@ const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const clientSessions = require("client-sessions");
 
+const HTTP_PORT = process.env.PORT || 8080;
+const WEEK10ASSETS = "./week10-assets/";
+
+// call this function after the http server starts listening for requests
+function onHttpStart() {
+  console.log("Express http server listening on: " + HTTP_PORT);
+}
+
 // A simple user object, hardcoded for this example
 const user = {
   username: "sampleuser",
@@ -24,12 +32,13 @@ function ensureLogin(req, res, next) {
 }
 
 // Register handlerbars as the rendering engine for views
+app.set("views", WEEK10ASSETS);
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
 // Setup the static folder that static resources can load from
 // like images, css files, etc.
-app.use(express.static("static"));
+app.use(express.static(WEEK10ASSETS));
 
 // Setup client-sessions
 app.use(clientSessions({
@@ -100,14 +109,16 @@ app.get("/dashboard", ensureLogin, (req, res) => {
   res.render("dashboard", {user: req.session.user});
 });
 
-// This use() will not allow requests to go beyond it.
-// So we place it at the end of the file, after the other routes.
-// This function will always fire because it has no specific route attached to it.
-// This means we can use it as a sort of 'catch all' for requests that don't match
-// one of the above routes.
+// This use() will not allow requests to go beyond it
+// so we place it at the end of the file, after the other routes.
+// This function will catch all other requests that don't match
+// any other route handlers declared before it.
+// This means we can use it as a sort of 'catch all' when no route match is found.
 // We use this function to handle 404 requests to pages that are not found.
 app.use((req, res) => {
   res.status(404).send("Page Not Found");
 });
 
-app.listen(3000);
+// listen on port 8080. The default port for http is 80, https is 443. We use 8080 here
+// because sometimes port 80 is in use by other applications on the machine
+app.listen(HTTP_PORT, onHttpStart);
