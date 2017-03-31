@@ -10,7 +10,9 @@ const mongoose = require("mongoose");
 const PhotoModel = require("./week8-assets/photoModel");
 const PHOTODIRECTORY = "./week8-assets/photos/";
 const HTTP_PORT = process.env.PORT || 8080;
-const connectionString = "mongodb://web_322:web322_pass@ds145790.mlab.com:45790/web322_week8";
+
+const config = require("./week8-assets/config");
+const connectionString = config.database_connection_string;
 
 // use bluebird promise library with mongoose
 mongoose.Promise = require("bluebird");
@@ -57,7 +59,7 @@ mongoose.connect(connectionString);
 
 // log when the DB is connected
 mongoose.connection.on("open", () => {
-  console.log("Database connection open: " + connectionString);
+  console.log("Database connection open.");
 });
 
 app.get("/", (req, res) => {
