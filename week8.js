@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 const PhotoModel = require("./week8-assets/photoModel");
 const PHOTODIRECTORY = "./week8-assets/photos/";
 const HTTP_PORT = process.env.PORT || 8080;
-const connectionString = "mongodb://192.168.0.100/web322";
+const connectionString = "mongodb://web_322:web322_pass@ds145790.mlab.com:45790/web322_week8";
 
 // use bluebird promise library with mongoose
 mongoose.Promise = require("bluebird");
