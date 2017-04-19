@@ -3,9 +3,21 @@ const app = express();
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const clientSessions = require("client-sessions");
+const fs = require("fs");
+const http = require("http");
+const https = require("https");
 
 const HTTP_PORT = process.env.PORT || 8080;
-const WEEK10ASSETS = "./week10-assets/";
+const HTTPS_PORT = 443;
+const WEEK12ASSETS = "./week12-assets/";
+const SSL_KEY_FILE = WEEK12ASSETS + "server.key";
+const SSL_CRT_FILE = WEEK12ASSETS + "server.crt";
+
+// read in the contents of the HTTPS certificate and key
+const https_options = {
+  key: fs.readFileSync(__dirname + "/" + SSL_KEY_FILE),
+  cert: fs.readFileSync(__dirname + "/" + SSL_CRT_FILE)
+};
 
 // A simple user object, hardcoded for this example
 const user = {
@@ -17,6 +29,11 @@ const user = {
 // call this function after the http server starts listening for requests
 function onHttpStart() {
   console.log("Express http server listening on: " + HTTP_PORT);
+}
+
+// call this function after the https server starts listening for requests
+function onHttpsStart() {
+  console.log("Express https server listening on: " + HTTPS_PORT);
 }
 
 // This is a helper middleware function that checks if a user is logged in
@@ -32,13 +49,13 @@ function ensureLogin(req, res, next) {
 }
 
 // Register handlerbars as the rendering engine for views
-app.set("views", WEEK10ASSETS);
+app.set("views", WEEK12ASSETS);
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
 // Setup the static folder that static resources can load from
 // like images, css files, etc.
-app.use(express.static(WEEK10ASSETS));
+app.use(express.static(WEEK12ASSETS));
 
 // Setup client-sessions
 app.use(clientSessions({
@@ -119,6 +136,8 @@ app.use((req, res) => {
   res.status(404).send("Page Not Found");
 });
 
-// listen on port HTTP_PORT. The default port for http is 80, https is 443. We use 8080 here
+
+// listen on ports HTTP_PORT and HTTPS_PORT. The default port for http is 80, https is 443. We use 8080 here
 // because sometimes port 80 is in use by other applications on the machine
-app.listen(HTTP_PORT, onHttpStart);
+http.createServer(app).listen(HTTP_PORT, onHttpStart);
+https.createServer(https_options, app).listen(HTTPS_PORT, onHttpsStart);
