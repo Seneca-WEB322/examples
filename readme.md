@@ -1,8 +1,3 @@
-## TODO
-
-maybe a short description of each weekly examples and what it does and how it works.
-how to change package.json for Heroku and how to push to heroku
-
 # Web 322 examples
 
 The repo contains examples for the WEB 322 course for Seneca College.
@@ -13,7 +8,8 @@ The repo contains examples for the WEB 322 course for Seneca College.
 * [Cloning the repo](#a1)
 * [Running the examples locally](#a2)
 * [Running the examples on Heroku](#a3)
-* [Submitting corrections or updates](#a4)
+* [Descriptions of the examples](#a4)
+* [Submitting corrections or updates](#a5)
 
 <a name="a0"></a>
 ## Requirements
@@ -46,7 +42,7 @@ The week 8 example requires MongoDB to be running as well. See the class notes f
 
 When you want to deploy one of the examples to Heroku you will need to edit the package.json file for the `start` property uder scripts. Change the command to the example you want Heroku to run.
 
-For example to run the week 2 example on Heroku, make the following changes in package.json:
+For example, to run the week 2 example on Heroku, make the following changes in package.json:
 ```
 "scripts": {
   "start": "node week2.js"
@@ -56,7 +52,29 @@ For example to run the week 2 example on Heroku, make the following changes in p
 <a name="a3"></a>
 ## Running the examples on Heroku
 
+See the guide for working with Heroku to learn about setting up your account and pushing code first. This readme assumes you are already familiar with how to push to Heroku and have your account setup already.
+
+To run the examples on your Heroku account, you just have to edit the package.json and set the script property to the file you want Heroku to run automatically.
+
+To have Heroku run the week 5 example edit your package.json file like this:
+```
+"scripts": {
+  "start": "node week5.js"
+},
+```
+
 <a name="a4"></a>
+## Descriptions of the examples
+
+* heroku.js - A basic hello world example you can push to Heroku to test your account
+* week2.js - A basic hello world using Express.js
+* week4.js - A more detailed Express.js example with routes and 404 handling
+* week5.js - An Express.js app that handles file uploading
+* week8.js - An Express.js photo book app that connects to MongoDB and handles saving pictures
+* week10.js - An Express.js app with client sessions and basic logins
+* week12.js - A more advanced Express.js app with secure HTTPS logins and client sessions
+
+<a name="a5"></a>
 ## Submitting corrections or updates
 
 You can submit a correction or update to the code if you find it is necessary. Examples are bug fixes, package updates, updates for Heroku requirements, readme.md fixes, etc.
