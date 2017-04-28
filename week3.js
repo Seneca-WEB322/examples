@@ -18,7 +18,7 @@
 //showExceptionHandling();
 //showChainingPromises();
 //showArrowFunctions();
-showLexicalThis();
+//showLexicalThis();
 
 /////////////////////
 // Example Functions:
