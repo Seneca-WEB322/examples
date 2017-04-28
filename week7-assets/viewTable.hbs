@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Postgres Example - Names</title>
+    </head>
+
+    <body>
+       <strong>All Names</strong><br />
+       <ul style="font-size: small">
+           <li>To <strong>change</strong> a name, make the change and click &ldquo;Update&rdquo;</li>
+           <li>To <strong>remove</strong> a name, clear out both fields and click &ldquo;Update&rdquo; </li>
+           <li>To <strong>add</strong> a name, enter a new name in the empty fields and click &ldquo;Add New&rdquo;</li>
+        </ul>
+        {{#each data}}
+        <div>
+            <form method="post" action="updateName">
+                <input type="hidden" name="id" value="{{dataValues.id}}" />
+                <table>
+                    <tr>
+                        <td><input type="text" name="fName" value="{{dataValues.fName}}" /></td>
+                        <td><input type="text" name="lName" value="{{dataValues.lName}}" /></td>
+                        <td><button type="submit">Update</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        {{/each}}
+        <form method="post" action="addName">
+            <table>
+                <tr>
+                    <td><input type="text" name="fName" value="" /></td>
+                    <td><input type="text" name="lName" value="" /></td>
+                    <td><button type="submit">Add New</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
