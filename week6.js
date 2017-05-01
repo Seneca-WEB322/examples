@@ -1,7 +1,7 @@
 // setup our requires
 const HTTP_PORT = 8080;
 const express = require("express");
-const exphbs = require('express-handlebars');
+const exphbs = require("express-handlebars");
 
 const app = module.exports = express();
 
@@ -36,7 +36,7 @@ app.get("/viewdata", (req, res) => {
     company: "TD"
   }];
 
-  res.render('viewdata', {
+  res.render("viewdata", {
     employees: employees
   });
 });

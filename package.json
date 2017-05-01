@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node week8.js"
+    "start": "node week6.js"
   },
   "author": "",
   "license": "MIT",
