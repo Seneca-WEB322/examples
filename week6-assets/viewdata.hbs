@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>View Data</title>
+</head>
+
+<body>
+  <table border='1'>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Occupation</th>
+      <th>Company</th>
+    </tr>
+    {{#each employees}}
+    <tr>
+      <td>{{@index}}</td>
+      <td>{{name}}</td>
+      <td>{{age}}</td>
+      <td>{{occupation}}</td>
+      <td>{{company}}</td>
+    </tr>
+    {{else}}
+    <tr>
+      <td colspan="5">No Data Available</td>
+    </tr>
+    {{/each}}
+  </table>
+</body>
+
+</html>
