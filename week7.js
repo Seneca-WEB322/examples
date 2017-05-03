@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const exphbs = require("express-handlebars");
 const Sequelize = require("sequelize");
 const bodyParser = require("body-parser");
@@ -6,7 +7,7 @@ const bodyParser = require("body-parser");
 const HTTP_PORT = process.env.PORT || 8080;
 const WEEK7ASSETS = "./week7-assets/";
 
-const app = module.exports = express();
+
 
 // call this function after the http server starts listening for requests
 function onHttpStart() {
