@@ -1,14 +1,12 @@
-const HTTP_PORT = process.env.PORT || 8080,
-    express = require("express"),
-    http = require("http");
+const express = require("express");
+const app =  express();
 
-var app = module.exports = express();
-
-// setup http server to listen on HTTP_PORT
-var http_server = http.createServer(app);
-http_server.listen(HTTP_PORT);
+const HTTP_PORT = process.env.PORT || 8080;
 
 // setup a 'route' to listen on the default url path
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
+
+// setup http server to listen on HTTP_PORT
+app.listen(HTTP_PORT);
