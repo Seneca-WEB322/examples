@@ -1,5 +1,4 @@
 const express = require("express");
-const http = require("http");
 const exphbs = require("express-handlebars");
 const Sequelize = require("sequelize");
 const bodyParser = require("body-parser");
@@ -8,6 +7,11 @@ const HTTP_PORT = process.env.PORT || 8080;
 const WEEK7ASSETS = "./week7-assets/";
 
 const app = module.exports = express();
+
+// call this function after the http server starts listening for requests
+function onHttpStart() {
+  console.log("Express http server listening on: " + HTTP_PORT);
+}
 
 // instruct the app to use the "bodyparser" middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,14 +42,8 @@ const Name = sequelize.define("Name", {
   lName: Sequelize.STRING, // Last Name
 });
 
-// create our server using the http module
-const http_server = http.createServer(app);
-
 // synchronize the database before we do anything else
 sequelize.sync().then(() => {
-
-  // start the server to listen on HTTP_PORT
-  http_server.listen(process.env.PORT || HTTP_PORT);
 
   // define the "/" route
   app.get("/", (req, res) => {
@@ -98,5 +96,8 @@ sequelize.sync().then(() => {
       res.redirect("/");
     });
   });
+
+  // start the server to listen on HTTP_PORT
+  app.listen(HTTP_PORT, onHttpStart);
 
 });
