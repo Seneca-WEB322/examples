@@ -68,8 +68,11 @@ To have Heroku run the week 5 example edit your package.json file like this:
 
 * heroku.js - A basic hello world example you can push to Heroku to test your account
 * week2.js - A basic hello world using Express.js
+* week3.js - A set of functions that can be run to demonstrate different JavaScript features
 * week4.js - A more detailed Express.js example with routes and 404 handling
 * week5.js - An Express.js app that handles file uploading
+* week6.js - An Express.js app that uses the handlebars templating library
+* week7.js - An Express.js demonstrating a connection to PostgreSQL database using Sequelize
 * week8.js - An Express.js photo book app that connects to MongoDB and handles saving pictures
 * week10.js - An Express.js app with client sessions and basic logins
 * week12.js - A more advanced Express.js app with secure HTTPS logins and client sessions
