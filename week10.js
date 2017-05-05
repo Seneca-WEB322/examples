@@ -57,12 +57,12 @@ app.get("/", (req, res) => {
 });
 
 // Display the login html page
-app.get("/login", function(req, res) {
+app.get("/login", (req, res) => {
   res.render("login", { });
 });
 
 // The login route that adds the user to the session
-app.post("/login", function(req, res) {
+app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -97,7 +97,7 @@ app.post("/login", function(req, res) {
 
 // Log a user out by destroying their session
 // and redirecting them to /login
-app.get("/logout", function(req, res) {
+app.get("/logout", (req, res) => {
   req.session.reset();
   res.redirect("/login");
 });

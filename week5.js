@@ -23,7 +23,7 @@ if (!fs.existsSync(PHOTODIRECTORY)) {
 // by default it won't store extensions for security reasons
 const storage = multer.diskStorage({
   destination: PHOTODIRECTORY,
-  filename: function (req, file, cb) {
+  filename: (req, file, cb) => {
     // we write the filename as the current date down to the millisecond
     // in a large web service this would possibly cause a problem if two people
     // uploaded an image at the exact same time. A better way would be to use GUID's for filenames.
