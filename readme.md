@@ -30,6 +30,8 @@ The command to clone the repo is:
 
 You will want to already be in the folder where you want the repo to be cloned and stored. A good place is c:\gitrepos on windows or /gitrepos on mac. A gitrepos folder right in your root of your main drive. You can put it anywhere you want though.
 
+Important Note: If you run the 'git clone' command from within an open folder Visual Studio Code, you will need to close the current folder and open the newly cloned 'examples' folder before you start working.
+
 <a name="a2"></a>
 ## Running the examples locally
 
