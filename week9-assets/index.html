@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>API Test</title>
+        <script>
+            function makeAJAXRequest(method, url, data){
+                let httpRequest = new XMLHttpRequest();
+                httpRequest.open(method, url);
+                if(data){
+                    httpRequest.setRequestHeader("Content-Type", "application/json");
+                    httpRequest.send(JSON.stringify(data));
+                }else{
+                    httpRequest.send();
+                }
+
+                httpRequest.onreadystatechange = () => {
+                    if (httpRequest.readyState === 4) {
+                        if (httpRequest.status === 200) {
+                            console.log(JSON.parse(httpRequest.responseText));
+                        }else{
+                            console.log("Error getting Data");
+                        }
+                    }
+                }
+            }
+            function getAllUsers(){
+                 makeAJAXRequest("GET", "/api/users");
+            }
+
+            function addNewUser(){
+                 makeAJAXRequest("POST", "/api/users", {fName: "Bob", lName: "Jones"});
+            }
+
+            function getUserById(){
+                makeAJAXRequest("GET", "/api/users/2");
+            }
+
+            function updateUserById(){
+                makeAJAXRequest("PUT", "/api/users/2", {fName: "Wanda", lName: "Smith"});
+            }
+
+            function deleteUserById(){
+                makeAJAXRequest("DELETE", "/api/users/2");
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <p>Test the API by outputting to the browser console:</p>
+        <!-- Get All Users -->
+        <button type="button" onclick="getAllUsers()">Get All Users</button><br /><br />
+        <!-- Add New User -->
+        <button type="button" onclick="addNewUser()">Add New User</button><br /><br />
+        <!-- Get User By Id -->
+        <button type="button" onclick="getUserById()">Get User</button><br /><br />
+        <!-- Update User By Id -->
+        <button type="button" onclick="updateUserById()">Update User</button><br /><br />
+        <!-- Delete User By Id -->
+        <button type="button" onclick="deleteUserById()">Delete User</button>
+    </body>
+
+</html>
