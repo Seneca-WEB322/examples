@@ -3,7 +3,7 @@ const HTTP_PORT = 8080;
 const express = require("express");
 const exphbs = require("express-handlebars");
 
-const app = module.exports = express();
+const app = express();
 
 // call this function after the http server starts listening for requests
 function onHttpStart() {
@@ -14,9 +14,6 @@ function onHttpStart() {
 app.set("views", "./week6-assets");
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
-
-// setup http server to listen on HTTP_PORT
-app.listen(process.env.PORT || HTTP_PORT, onHttpStart);
 
 app.get("/", (req, res) => {
   res.redirect("/viewdata");
@@ -40,3 +37,6 @@ app.get("/viewdata", (req, res) => {
     employees: employees
   });
 });
+
+// start the server to listen on HTTP_PORT
+app.listen(HTTP_PORT, onHttpStart);
