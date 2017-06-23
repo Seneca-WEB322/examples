@@ -71,23 +71,16 @@ app.post("/login", (req, res) => {
     return res.render("login", { errorMsg: "Missing credentials." });
   }
 
-  if(username === user.username && password === user.password) {
+  // hard-code "sampleuser" and "samplepassword" as the only user for testing
+
+  if(username === "sampleuser" && password === "samplepassword") {
+    
     // Add the user on the session and redirect them to the dashboard page.
-    // We have to copy the user properties here rather than use
-    // req.session.user = user;
-    // If we did that, it would set req.session.user to be a REFERENCE to the user object
-    // and when we delete the password your user won't be able to log back in after logging out.
-    // The password would be deleted from both the req.session.user AND the user const
     req.session.user = {
       username: user.username,
-      password: user.password,
       email: user.email
     };
-    // delete the password from the session for security purposes
-    // you should never send a users password back to the client
-    // even if the password AND session are encrypted. There is just
-    // no need for it.
-    delete req.session.user.password;
+    
     res.redirect("/dashboard");
   } else {
     // render 'invalid username or password'
