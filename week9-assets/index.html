@@ -14,7 +14,7 @@
                     httpRequest.send();
                 }
 
-                httpRequest.onreadystatechange = () => {
+                httpRequest.onreadystatechange = function(){
                     if (httpRequest.readyState === 4) {
                         if (httpRequest.status === 200) {
                             console.log(JSON.parse(httpRequest.responseText));
