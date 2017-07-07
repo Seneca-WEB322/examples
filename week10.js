@@ -71,9 +71,8 @@ app.post("/login", (req, res) => {
     return res.render("login", { errorMsg: "Missing credentials." });
   }
 
-  // hard-code "sampleuser" and "samplepassword" as the only user for testing
-
-  if(username === "sampleuser" && password === "samplepassword") {
+  // use sample "user" (declared above)
+  if(username === user.username && password === user.password) {
     
     // Add the user on the session and redirect them to the dashboard page.
     req.session.user = {
