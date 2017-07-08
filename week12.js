@@ -8,7 +8,7 @@ const http = require("http");
 const https = require("https");
 
 const HTTP_PORT = process.env.PORT || 8080;
-const HTTPS_PORT = 443;
+const HTTPS_PORT = 4433;
 const WEEK12ASSETS = "./week12-assets/";
 const SSL_KEY_FILE = WEEK12ASSETS + "server.key";
 const SSL_CRT_FILE = WEEK12ASSETS + "server.crt";
@@ -137,7 +137,7 @@ app.use((req, res) => {
 });
 
 
-// listen on ports HTTP_PORT and HTTPS_PORT. The default port for http is 80, https is 443. We use 8080 here
-// because sometimes port 80 is in use by other applications on the machine
+// listen on ports HTTP_PORT and HTTPS_PORT. The default port for http is 80, https is 443. We use 8080 and 4433 here
+// because sometimes port 80 is in use by other applications on the machine and using port 443 requires admin access on osx
 http.createServer(app).listen(HTTP_PORT, onHttpStart);
 https.createServer(https_options, app).listen(HTTPS_PORT, onHttpsStart);
