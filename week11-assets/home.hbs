@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <!-- it is common to place the .js files at the end of the <body> tag as well -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <script src="/js/main.js"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">WEB322</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-right">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Submit</button>                
+                            </span>
+                        </div>
+                    </form>
+                   
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Dropdown Link</a></li>
+                                <li><a href="#">Dropdown Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row"><div class="col-md-12"><h3>jQuery</h3><hr /></div></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Selectors (:odd)</h4>
+                    <table class="table table-bordered" id="table1">
+                        <tr>
+                            <th>Header 1</th>
+                            <th>Header 2</th>
+                        </tr>
+                        <tr>
+                            <td>Row 1 Col 1</td>
+                            <td>Row 1 Col 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2 Col 1</td>
+                            <td>Row 2 Col 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 3 Col 1</td>
+                            <td>Row 3 Col 2</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <h4>Events</h4>
+                    <table class="table table-bordered" id="table2">
+                        <tr>
+                            <th>Header 1</th>
+                            <th>Header 2</th>
+                        </tr>
+                        <tr>
+                            <td>Row 1 Col 1</td>
+                            <td>Row 1 Col 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2 Col 1</td>
+                            <td>Row 2 Col 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 3 Col 1</td>
+                            <td>Row 3 Col 2</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <h4>AJAX</h4>
+                    <button class="btn btn-success" id="ajaxBtn">Send Data</button>
+                    <br /><br />
+                    <div id="ajaxResult"></div>
+                </div>
+            </div>
+            <div class="row"><div class="col-md-12"><h3>Bootstrap</h3><hr /></div></div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>Icons</h4>
+                    <span class="glyphicon glyphicon-search" style="font-size:x-small;"></span>
+                    <span class="glyphicon glyphicon-search" style="font-size:small;"></span>
+                    <span class="glyphicon glyphicon-search" style="font-size:medium;"></span>
+                    <span class="glyphicon glyphicon-search" style="font-size:x-large;"></span>
+                    <span class="glyphicon glyphicon-search" style="font-size:xx-large;"></span>
+                </div>
+                <div class="col-md-3">
+                    <h4>Buttons</h4>
+                    <!-- Standard button -->
+                    <p>
+                        <!-- Standard button -->
+                        <button type="button" class="btn btn-default">Default</button>
+
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <button type="button" class="btn btn-primary">Primary</button>
+
+                        <!-- Indicates a successful or positive action -->
+                        <button type="button" class="btn btn-success">Success</button>
+                    </p>
+                    <p>
+                        <!-- Contextual button for informational alert messages -->
+                        <button type="button" class="btn btn-info">Info</button>
+
+                        <!-- Indicates caution should be taken with this action -->
+                        <button type="button" class="btn btn-warning">Warning</button>
+
+                        <!-- Indicates a dangerous or potentially negative action -->
+                        <button type="button" class="btn btn-danger">Danger</button>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Button Sizes</h4>
+                    <p>
+                        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary">Default button</button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary btn-xs">Extra small button</button>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Dropdown Button</h4>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true">
+                            Dropdown&nbsp;&nbsp;<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-6">
+                    <br /><br />
+                    <h4>Simple Form</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Example block-level help text here.</p>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Check me out
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                 </div>
+                 <div class="col-md-6">
+                     <br /><br />
+                     <h4>Dismissible Alerts</h4>
+                     <div class="alert alert-danger alert-dismissible fade in" role="alert"> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Error:</strong> Something went wrong. 
+                    </div>
+
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert"> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Warning:</strong> Something might go wrong soon. 
+                    </div>
+
+                    <div class="alert alert-info alert-dismissible fade in" role="alert"> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Information:</strong> Something is happening. 
+                    </div>
+
+                    <div class="alert alert-success alert-dismissible fade in" role="alert"> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Success:</strong> Something went right! 
+                    </div>  
+                 </div>
+            </div>
+             <div class="row">
+                 <div class="col-md-3">
+                    <br /><br />
+                    <h4>Modal Window</h4>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
+                 </div>
+                 <div class="col-md-9">
+                    <br /><br />
+                    <h4>Tabs</h4>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                        <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="home"><br />home content</div>
+                        <div role="tabpanel" class="tab-pane fade" id="profile"><br />profile content</div>
+                        <div role="tabpanel" class="tab-pane fade" id="messages"><br />messages content</div>
+                        <div role="tabpanel" class="tab-pane fade" id="settings"><br />settings content</div>
+                    </div>
+                 </div>
+                 
+            </div> 
+        </div>
+        <!-- add some extra spacing before the end of the page -->
+        <br /><br /><br /><br />
+
+        <!-- Modal (often placed at the end of the page to keep it separate)-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="console.log('saved!'); $('#myModal').modal('hide');">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

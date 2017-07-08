@@ -78,6 +78,7 @@ To have Heroku run the week 5 example edit your package.json file like this:
 * week8.js - An Express.js photo book app that connects to MongoDB and handles saving pictures
 * week9.js - An Express.js REST API and test client (HTML / AJAX)
 * week10.js - An Express.js app with client sessions and basic logins
+* week11.js - An Express.js app that serves up a "home" view, containing jQuery and Bootstrap examples
 * week12.js - A more advanced Express.js app with secure HTTPS logins and client sessions
 
 <a name="a5"></a>
