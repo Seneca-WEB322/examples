@@ -8,7 +8,7 @@ const HTTP_PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 
 app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname + "/week9-assets/index.html"));
+    res.sendFile(path.join(__dirname, "/week9-assets/index.html"));
 });
 
 app.get("/api/users", (req, res) => {
