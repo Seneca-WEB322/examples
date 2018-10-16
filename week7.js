@@ -61,16 +61,16 @@ app.post("/updateName", (req, res) => {
     if (req.body.lName.length == 0 && req.body.fName.length == 0) {
         // remove a record from the  "Name" model with the data from req.body
         Name.destroy({
-        where: { id: req.body.id }
+            where: { id: req.body.id }
         }).then(() => {
-        console.log("successsfully removed user: " + req.body.id);
-        res.redirect("/"); // redirect back to the home page
+            console.log("successsfully removed user: " + req.body.id);
+            res.redirect("/"); // redirect back to the home page
         });
     } else {
         // update a record using the "Name" model with the data from req.body
         Name.update({
-        lName: req.body.lName,
-        fName: req.body.fName
+            lName: req.body.lName,
+            fName: req.body.fName
         }, {
             where: { id: req.body.id }
         }).then(() => {
