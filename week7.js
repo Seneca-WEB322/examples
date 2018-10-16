@@ -37,68 +37,63 @@ const sequelize = new Sequelize("database", "user", "password", {
 });
 
 // Define our Models - "Name"
-
 const Name = sequelize.define("Name", {
   fName: Sequelize.STRING,  // first Name
   lName: Sequelize.STRING, // Last Name
 });
 
-// synchronize the database before we do anything else
-sequelize.sync().then(() => {
-
-  // define the "/" route
-  app.get("/", (req, res) => {
-
+// define the "/" route
+app.get("/", (req, res) => {
     // fetch all of the names and order them by id
     Name.findAll({
-      order: ["id"]
+        order: ["id"]
     }).then((data) => {
-      // render the "viewTable" view with the data
-      res.render("viewTable", {
+        // render the "viewTable" view with the data
+        res.render("viewTable", {
         data: data
-      });
+        });
     });
-  });
+});
 
-  // define the "/updateName" route
-  app.post("/updateName", (req, res) => {
-
+// define the "/updateName" route
+app.post("/updateName", (req, res) => {
     // check to see if both first name & last name fields are blank
     if (req.body.lName.length == 0 && req.body.fName.length == 0) {
-      // remove a record from the  "Name" model with the data from req.body
-      Name.destroy({
+        // remove a record from the  "Name" model with the data from req.body
+        Name.destroy({
         where: { id: req.body.id }
-      }).then(() => {
+        }).then(() => {
         console.log("successsfully removed user: " + req.body.id);
         res.redirect("/"); // redirect back to the home page
-      });
+        });
     } else {
-      // update a record using the "Name" model with the data from req.body
-      Name.update({
+        // update a record using the "Name" model with the data from req.body
+        Name.update({
         lName: req.body.lName,
         fName: req.body.fName
-      }, {
-          where: { id: req.body.id }
+        }, {
+            where: { id: req.body.id }
         }).then(() => {
-          console.log("successfully updated name: " + req.body.id);
-          res.redirect("/"); // redirect back to the home page
+            console.log("successfully updated name: " + req.body.id);
+            res.redirect("/"); // redirect back to the home page
         });
     }
-  });
+});
 
-  // define the "/addName" route
-  app.post("/addName", (req, res) => {
+// define the "/addName" route
+app.post("/addName", (req, res) => {
     // create a record using the "Name" model with the data from req.body
     Name.create({
-      lName: req.body.lName,
-      fName: req.body.fName
+        lName: req.body.lName,
+        fName: req.body.fName
     }).then(() => {
-      console.log("successfully created a new name");
-      res.redirect("/");
+        console.log("successfully created a new name");
+        res.redirect("/");
     });
-  });
+});
 
-  // start the server to listen on HTTP_PORT
-  app.listen(HTTP_PORT, onHttpStart);
-
+// synchronize the database before we start the server
+sequelize.sync().then(() => {
+    // start the server to listen on HTTP_PORT
+    app.listen(HTTP_PORT, onHttpStart);
 });
