@@ -14,11 +14,11 @@
         {{#each data}}
         <div>
             <form method="post" action="updateName">
-                <input type="hidden" name="id" value="{{dataValues.id}}" />
+                <input type="hidden" name="id" value="{{id}}" />
                 <table>
                     <tr>
-                        <td><input type="text" name="fName" value="{{dataValues.fName}}" /></td>
-                        <td><input type="text" name="lName" value="{{dataValues.lName}}" /></td>
+                        <td><input type="text" name="fName" value="{{fName}}" /></td>
+                        <td><input type="text" name="lName" value="{{lName}}" /></td>
                         <td><button type="submit">Update</button></td>
                     </tr>
                 </table>
